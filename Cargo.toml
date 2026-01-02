@@ -1,6 +1,6 @@
 [package]
 name = "vanguards-rs"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2021"
 description = "Enhanced security for Tor hidden services through vanguard relay selection"
 license = "Apache-2.0"

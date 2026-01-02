@@ -19,10 +19,10 @@
 
 <p align="center">
   <a href="https://github.com/tn3w/vanguards-rs/actions">
-    <img src="https://img.shields.io/github/actions/workflow/status/vanguards-rs/vanguards-rs/tests.yml?style=for-the-badge&logo=github&logoColor=white&label=CI" alt="CI">
+    <img src="https://img.shields.io/github/actions/workflow/status/tn3w/vanguards-rs/tests.yml?style=for-the-badge&logo=github&logoColor=white&label=CI" alt="CI">
   </a>
   <a href="https://github.com/tn3w/vanguards-rs">
-    <img src="https://img.shields.io/github/stars/vanguards-rs/vanguards-rs?style=for-the-badge&logo=github&logoColor=white" alt="Stars">
+    <img src="https://img.shields.io/github/stars/tn3w/vanguards-rs?style=for-the-badge&logo=github&logoColor=white" alt="Stars">
   </a>
 </p>
 
