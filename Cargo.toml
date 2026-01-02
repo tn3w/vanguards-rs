@@ -1,0 +1,45 @@
+[package]
+name = "vanguards-rs"
+version = "1.0.0"
+edition = "2021"
+description = "Enhanced security for Tor hidden services through vanguard relay selection"
+license = "Apache-2.0"
+authors = ["tn3w <tn3w@protonmail.com>"]
+repository = "https://github.com/tn3w/vanguards-rs"
+homepage = "https://vanguards.tn3w.dev"
+documentation = "https://vanguards.tn3w.dev/docs/"
+readme = "README.md"
+keywords = ["tor", "privacy", "vanguards", "hidden-service", "security"]
+categories = ["network-programming", "asynchronous", "cryptography"]
+
+[features]
+default = []
+integration = []
+
+[lib]
+name = "vanguards_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "vanguards-rs"
+path = "src/main.rs"
+
+[dependencies]
+stem-rs = "1.1"
+tokio = { version = "1.48", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+toml = "0.9"
+thiserror = "2"
+clap = { version = "4.5", features = ["derive", "env"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tracing-appender = "0.2"
+zeroize = { version = "1.8", features = ["derive"] }
+ipnetwork = "0.21"
+rand = "0.8"
+serde-pickle = "1.2"
+chrono = "0.4"
+
+[dev-dependencies]
+proptest = "1"
+tempfile = "3"

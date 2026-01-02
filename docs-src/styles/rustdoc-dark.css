@@ -1,0 +1,428 @@
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #111111;
+    --bg-elevated: #161616;
+    --bg-card: #1a1a1a;
+
+    --text-primary: #f5f5f5;
+    --text-secondary: #a8a8a8;
+    --text-muted: #666666;
+
+    --accent: #10b981;
+    --accent-hover: #34d399;
+    --accent-dim: rgba(16, 185, 129, 0.15);
+
+    --border: #222222;
+    --border-light: #2a2a2a;
+
+    --code-bg: #0d0d0d;
+    --code-keyword: #c586c0;
+    --code-string: #ce9178;
+    --code-function: #dcdcaa;
+    --code-comment: #6a9955;
+    --code-type: #4ec9b0;
+    --code-number: #b5cea8;
+    --code-macro: #569cd6;
+
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'SF Mono', Consolas, 'Liberation Mono', monospace;
+
+    --radius: 8px;
+    --radius-lg: 12px;
+}
+
+body.rustdoc {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    font-family: var(--font-sans) !important;
+    line-height: 1.6 !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+.sidebar,
+.rustdoc .sidebar {
+    background-color: var(--bg-secondary) !important;
+    border-right: 1px solid var(--border) !important;
+    padding: 16px 12px !important;
+}
+
+.main-heading,
+.rustdoc .main-heading {
+    border-bottom: 1px solid var(--border) !important;
+    padding-bottom: 16px !important;
+    margin-bottom: 24px !important;
+}
+
+.main-heading h1 {
+    color: var(--text-primary) !important;
+    font-size: 2rem !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.content {
+    background-color: var(--bg-primary) !important;
+    padding: 24px !important;
+}
+
+a {
+    color: var(--accent) !important;
+    text-decoration: none !important;
+    transition: color 0.15s ease !important;
+}
+
+a:hover {
+    color: var(--accent-hover) !important;
+}
+
+.docblock {
+    color: var(--text-secondary) !important;
+    line-height: 1.7 !important;
+    margin: 16px 0 !important;
+}
+
+.docblock p {
+    margin: 12px 0 !important;
+}
+
+.docblock h2,
+.docblock h3,
+.docblock h4 {
+    color: var(--text-primary) !important;
+    margin: 24px 0 12px 0 !important;
+    padding-bottom: 6px !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+.docblock h2 {
+    font-size: 1.4rem !important;
+}
+
+.docblock h3 {
+    font-size: 1.2rem !important;
+}
+
+.docblock ul,
+.docblock ol {
+    margin: 12px 0 !important;
+    padding-left: 20px !important;
+}
+
+.docblock li {
+    margin: 6px 0 !important;
+    color: var(--text-secondary) !important;
+}
+
+pre,
+.rustdoc pre {
+    background-color: var(--code-bg) !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: var(--radius) !important;
+    padding: 14px 18px !important;
+    margin: 14px 0 !important;
+    overflow-x: auto !important;
+}
+
+code,
+.rustdoc code {
+    font-family: var(--font-mono) !important;
+    font-size: 0.9em !important;
+}
+
+.docblock code,
+p code,
+li code {
+    background-color: var(--bg-elevated) !important;
+    padding: 2px 8px !important;
+    border-radius: 4px !important;
+    font-size: 0.85em !important;
+}
+
+.rust-rendered code,
+pre.rust code,
+.example-wrap code {
+    background-color: transparent !important;
+    padding: 0 !important;
+}
+
+.kw,
+.kw-2 {
+    color: var(--code-keyword) !important;
+}
+.prelude-ty,
+.type {
+    color: var(--code-type) !important;
+}
+.prelude-val {
+    color: var(--code-function) !important;
+}
+.string {
+    color: var(--code-string) !important;
+}
+.number {
+    color: var(--code-number) !important;
+}
+.bool-val,
+.self {
+    color: var(--code-macro) !important;
+}
+.macro {
+    color: var(--code-macro) !important;
+}
+.comment,
+.doccomment {
+    color: var(--code-comment) !important;
+    font-style: italic !important;
+}
+.lifetime {
+    color: var(--code-keyword) !important;
+}
+.fn,
+.method,
+.fnname {
+    color: var(--code-function) !important;
+}
+.attribute {
+    color: var(--code-type) !important;
+}
+
+.item-decl {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    padding: 14px 18px !important;
+    margin: 16px 0 !important;
+}
+
+.item-table {
+    margin: 16px 0 !important;
+}
+
+.item-table dt,
+.item-table .item-name {
+    padding: 8px 0 !important;
+}
+
+.item-table dd,
+.item-table .desc {
+    color: var(--text-secondary) !important;
+    padding-bottom: 12px !important;
+    border-bottom: 1px solid var(--border) !important;
+    margin-bottom: 6px !important;
+}
+
+.section-header,
+h2.section-header {
+    color: var(--text-primary) !important;
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+    margin: 32px 0 16px 0 !important;
+    padding-bottom: 8px !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+.anchor {
+    color: var(--text-muted) !important;
+    margin-left: 8px !important;
+}
+
+.search-input,
+.rustdoc .search-input {
+    background-color: var(--bg-elevated) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    color: var(--text-primary) !important;
+    padding: 10px 16px !important;
+    font-size: 0.95rem !important;
+}
+
+.search-input:focus {
+    border-color: var(--accent) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px var(--accent-dim) !important;
+}
+
+.search-results {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+.search-results a {
+    padding: 12px 16px !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+.search-results a:hover {
+    background-color: var(--bg-elevated) !important;
+}
+
+nav.sub {
+    background-color: var(--bg-secondary) !important;
+    border-bottom: 1px solid var(--border) !important;
+    padding: 12px 24px !important;
+}
+
+rustdoc-topbar {
+    background-color: var(--bg-secondary) !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+.mobile-topbar {
+    background-color: var(--bg-secondary) !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    margin: 24px 0 !important;
+}
+
+th {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    padding: 12px 16px !important;
+    text-align: left !important;
+    font-weight: 600 !important;
+}
+
+td {
+    padding: 12px 16px !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+tr:hover td {
+    background-color: var(--bg-elevated) !important;
+}
+
+.stab {
+    background-color: var(--bg-elevated) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    padding: 8px 12px !important;
+    font-size: 0.85rem !important;
+    margin: 16px 0 !important;
+}
+
+.stab.unstable {
+    border-left: 3px solid #e0a458 !important;
+}
+
+.stab.deprecated {
+    border-left: 3px solid #ce9178 !important;
+}
+
+.toggle-wrapper,
+.collapse-toggle,
+details summary {
+    color: var(--text-secondary) !important;
+    cursor: pointer !important;
+}
+
+.toggle-wrapper:hover,
+.collapse-toggle:hover,
+details summary:hover {
+    color: var(--text-primary) !important;
+}
+
+details {
+    margin: 16px 0 !important;
+}
+
+.src-line-numbers {
+    color: var(--text-muted) !important;
+    padding-right: 16px !important;
+    border-right: 1px solid var(--border) !important;
+    margin-right: 16px !important;
+}
+
+.src-line-numbers .line-highlighted {
+    background-color: var(--accent-dim) !important;
+}
+
+#copy-path,
+button {
+    background-color: var(--bg-elevated) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    color: var(--text-secondary) !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+}
+
+#copy-path:hover,
+button:hover {
+    background-color: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--accent) !important;
+}
+
+#settings-menu,
+#help-button {
+    color: var(--text-secondary) !important;
+}
+
+#settings-menu:hover,
+#help-button:hover {
+    color: var(--text-primary) !important;
+}
+
+.popover {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary) !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-light) !important;
+    border-radius: 4px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent) !important;
+}
+
+@media (min-width: 1024px) {
+    .content {
+        padding: 32px 48px !important;
+    }
+
+    .sidebar {
+        padding: 20px 16px !important;
+    }
+}
+
+.out-of-band {
+    color: var(--text-muted) !important;
+    font-size: 0.85rem !important;
+}
+
+.sub-heading {
+    color: var(--text-muted) !important;
+}
+
+.rustdoc .sidebar,
+.rustdoc nav.sub,
+.rustdoc .content {
+    border: none !important;
+}
+
+.sidebar {
+    border-right: 1px solid var(--border) !important;
+}
+
+rustdoc-toolbar span.label {
+    flex-grow: 0 !important;
+}

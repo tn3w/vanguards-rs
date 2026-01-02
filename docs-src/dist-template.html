@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="vanguards-rs source code archives" />
+        <title>Downloads - vanguards-rs</title>
+        <link rel="stylesheet" href="../styles/theme.css" />
+        <link rel="stylesheet" href="../styles/main.css" />
+        <style>
+            .dist-page {
+                min-height: 100vh;
+                padding-top: calc(60px + var(--space-12));
+            }
+            .dist-header {
+                text-align: center;
+                margin-bottom: var(--space-12);
+            }
+            .dist-title {
+                font-size: var(--text-3xl);
+                font-weight: 700;
+                margin-bottom: var(--space-4);
+            }
+            .dist-subtitle {
+                color: var(--color-text-secondary);
+                font-size: var(--text-lg);
+            }
+            .dist-table {
+                width: 100%;
+                max-width: 900px;
+                margin: 0 auto;
+                background: var(--color-bg-card);
+                border: 1px solid rgba(255, 255, 255, 0.06);
+                border-radius: var(--border-radius-lg);
+                overflow: hidden;
+            }
+            .dist-table-header {
+                display: grid;
+                grid-template-columns: 1fr auto auto;
+                gap: var(--space-4);
+                padding: var(--space-4) var(--space-6);
+                background: var(--color-bg-tertiary);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+                font-size: var(--text-sm);
+                font-weight: 600;
+                color: var(--color-text-muted);
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+            .dist-row {
+                display: grid;
+                grid-template-columns: 1fr auto auto;
+                gap: var(--space-4);
+                padding: var(--space-4) var(--space-6);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+                transition: background var(--transition-fast);
+                align-items: center;
+            }
+            .dist-row:last-child {
+                border-bottom: none;
+            }
+            .dist-row:hover {
+                background: rgba(16, 185, 129, 0.1);
+            }
+            .dist-file {
+                display: flex;
+                align-items: center;
+                gap: var(--space-3);
+            }
+            .dist-file-icon {
+                font-size: var(--text-lg);
+            }
+            .dist-file-link {
+                color: var(--color-text-primary);
+                font-family: var(--font-mono);
+                font-size: var(--text-sm);
+            }
+            .dist-file-link:hover {
+                color: var(--color-accent-hover);
+            }
+            .dist-latest-badge {
+                display: inline-block;
+                padding: 2px 8px;
+                margin-left: var(--space-3);
+                background: var(--gradient-accent);
+                border-radius: 100px;
+                font-size: var(--text-xs);
+                font-weight: 600;
+                color: var(--color-text-primary);
+                text-transform: uppercase;
+                letter-spacing: 0.03em;
+            }
+            .dist-size,
+            .dist-date {
+                color: var(--color-text-muted);
+                font-size: var(--text-sm);
+                font-family: var(--font-mono);
+                text-align: right;
+            }
+            .dist-back {
+                display: inline-flex;
+                align-items: center;
+                gap: var(--space-2);
+                margin-bottom: var(--space-8);
+                color: var(--color-text-secondary);
+                font-size: var(--text-sm);
+            }
+            .dist-back:hover {
+                color: var(--color-text-primary);
+            }
+            @media (max-width: 640px) {
+                .dist-table-header,
+                .dist-row {
+                    grid-template-columns: 1fr auto;
+                }
+                .dist-date {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav class="container">
+                <a href="/" class="nav-logo">vanguards-rs</a>
+                <div class="nav-links">
+                    <a href="/#features" class="nav-hide-mobile">Features</a>
+                    <a href="/#examples" class="nav-hide-mobile">Examples</a>
+                    <a href="/docs/">API Docs</a>
+                    <a
+                        href="https://github.com/tn3w/vanguards-rs"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >GitHub</a
+                    >
+                </div>
+            </nav>
+        </header>
+
+        <main class="dist-page">
+            <div class="container">
+                <a href="/" class="dist-back">← Back to Home</a>
+                <div class="dist-header">
+                    <h1 class="dist-title">📦 Source Archives</h1>
+                    <p class="dist-subtitle">Download source code archives for all releases</p>
+                </div>
+                <div class="dist-table">
+                    <div class="dist-table-header">
+                        <span>File</span>
+                        <span>Size</span>
+                        <span>Date</span>
+                    </div>
+                    <!-- FILE_LIST_PLACEHOLDER -->
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div>
+                        <div class="footer-logo">vanguards-rs</div>
+                        <p class="footer-copyright">
+                            © 2026 vanguards-rs contributors. Apache-2.0 License.
+                        </p>
+                    </div>
+                    <div class="footer-links">
+                        <a
+                            href="https://github.com/tn3w/vanguards-rs"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >GitHub</a
+                        >
+                        <a
+                            href="https://crates.io/crates/vanguards-rs"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >crates.io</a
+                        >
+                        <a href="/docs/">Documentation</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

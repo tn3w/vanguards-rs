@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="vanguards-rs is a Rust implementation of vanguards for enhanced Tor hidden service security. Protect against guard discovery attacks with persistent vanguard relay selection."
+        />
+        <meta
+            name="keywords"
+            content="vanguards-rs, Tor, Rust, hidden services, onion services, privacy, anonymity, guard discovery, vanguards"
+        />
+
+        <meta
+            property="og:title"
+            content="vanguards-rs - Enhanced Security for Tor Hidden Services"
+        />
+        <meta
+            property="og:description"
+            content="A Rust implementation of vanguards for protecting Tor hidden services against guard discovery attacks. Persistent vanguard relay selection with Rust's safety guarantees."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://vanguards.tn3w.dev/" />
+
+        <title>vanguards-rs - Enhanced Security for Tor Hidden Services</title>
+
+        <link rel="stylesheet" href="styles/theme.css" />
+        <link rel="stylesheet" href="styles/main.css" />
+    </head>
+    <body>
+        <header>
+            <nav class="container">
+                <a href="/" class="nav-logo">vanguards-rs</a>
+                <div class="nav-links">
+                    <a href="#quickstart" class="nav-hide-mobile">Quick Start</a>
+                    <a href="#protection" class="nav-hide-mobile">Protection</a>
+                    <a href="#cli" class="nav-hide-mobile">CLI</a>
+                    <a href="docs/">
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                            <path
+                                d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                            />
+                        </svg>
+                        Docs
+                    </a>
+                    <a
+                        href="https://github.com/tn3w/vanguards-rs"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+                            />
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section id="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <span>🦀</span>
+                            <span>Built with Rust</span>
+                        </div>
+                        <h1 class="hero-title">vanguards-rs</h1>
+                        <p class="hero-tagline">
+                            Protect Tor onion services from deanonymization with persistent vanguard
+                            relay selection.
+                        </p>
+                        <div class="hero-install">
+                            <span class="hero-install-prompt">$</span>
+                            <code>cargo install vanguards-rs && vanguards-rs</code>
+                        </div>
+                        <div class="hero-buttons">
+                            <a href="#quickstart" class="btn btn-primary">
+                                <svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg>
+                                <span>Get Started</span>
+                            </a>
+                            <a href="docs/" class="btn btn-secondary">
+                                <svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                                    <path
+                                        d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                                    />
+                                </svg>
+                                <span>Documentation</span>
+                            </a>
+                            <a
+                                href="https://github.com/tn3w/vanguards-rs"
+                                class="btn btn-secondary"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+                                    />
+                                </svg>
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <div class="stat-value">6</div>
+                                <div class="stat-label">Components</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">Async</div>
+                                <div class="stat-label">Tokio Runtime</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">100%</div>
+                                <div class="stat-label">Python Parity</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="quickstart">
+                <div class="container">
+                    <div class="section-header">
+                        <div class="section-label">🚀 Get Started</div>
+                        <h2 class="section-title">Quick Start</h2>
+                        <p class="section-subtitle">
+                            Protect your onion service in under a minute.
+                        </p>
+                    </div>
+                    <div class="quickstart-grid">
+                        <div class="quickstart-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Enable Tor Control Port</h3>
+                                <p>
+                                    Add these lines to your <code>torrc</code> configuration file:
+                                </p>
+                                <pre><code><span class="code-keyword">ControlPort</span> <span class="code-number">9051</span>
+<span class="code-keyword">CookieAuthentication</span> <span class="code-number">1</span>
+<span class="code-keyword">DataDirectory</span> <span class="code-string">/var/lib/tor</span></code></pre>
+                                <p class="step-hint">
+                                    Or use Unix socket: <code>ControlSocket /run/tor/control</code>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="quickstart-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Install vanguards-rs</h3>
+                                <p>Install via Cargo from crates.io:</p>
+                                <pre><code><span class="code-prompt">$</span> cargo install vanguards-rs</code></pre>
+                                <p class="step-hint">Requires Rust 1.70+ and Tokio runtime</p>
+                            </div>
+                        </div>
+                        <div class="quickstart-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Run Protection</h3>
+                                <p>Start vanguards-rs alongside your Tor instance:</p>
+                                <pre><code><span class="code-prompt">$</span> vanguards-rs</code></pre>
+                                <p class="step-note">
+                                    ✓ Your onion service is now protected against guard discovery
+                                    attacks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="protection">
+                <div class="container">
+                    <div class="section-header">
+                        <div class="section-label">🛡️ Security</div>
+                        <h2 class="section-title">What it protects against</h2>
+                        <p class="section-subtitle">
+                            Multiple layers of defense against sophisticated attacks targeting Tor
+                            hidden services.
+                        </p>
+                    </div>
+                    <div class="protection-grid">
+                        <a href="docs/vanguards/" class="protection-card">
+                            <div class="protection-icon">🔒</div>
+                            <h3>Guard Discovery Attacks</h3>
+                            <p>
+                                Persistent vanguard relays at Layer 2 (4-8 relays, 1-45 day
+                                lifetime) and Layer 3 (4-8 relays, 1-48 hour lifetime) prevent
+                                attackers from identifying your entry guards through circuit
+                                manipulation and timing analysis.
+                            </p>
+                            <div class="protection-details">
+                                <span class="detail-tag">Bandwidth-weighted selection</span>
+                                <span class="detail-tag">Automatic rotation</span>
+                                <span class="detail-tag">State persistence</span>
+                            </div>
+                        </a>
+                        <a href="docs/bandguards/" class="protection-card">
+                            <div class="protection-icon">📊</div>
+                            <h3>Bandwidth Side-Channels</h3>
+                            <p>
+                                Monitors circuit traffic patterns to detect side-channel attacks.
+                                Enforces configurable limits on circuit size (MB threshold), circuit
+                                age (default 24h), and HSDIR descriptor sizes (30KB default) to
+                                prevent fingerprinting.
+                            </p>
+                            <div class="protection-details">
+                                <span class="detail-tag">Circuit size limits</span>
+                                <span class="detail-tag">Age monitoring</span>
+                                <span class="detail-tag">Disconnection warnings</span>
+                            </div>
+                        </a>
+                        <a href="docs/rendguard/" class="protection-card">
+                            <div class="protection-icon">🎯</div>
+                            <h3>Rendezvous Point Overuse</h3>
+                            <p>
+                                Statistical detection of rendezvous point manipulation. Tracks
+                                per-relay usage against bandwidth-weighted expected values.
+                                Automatically closes circuits when usage exceeds configurable
+                                thresholds (default 5x expected ratio).
+                            </p>
+                            <div class="protection-details">
+                                <span class="detail-tag">Usage tracking</span>
+                                <span class="detail-tag">Statistical analysis</span>
+                                <span class="detail-tag">Auto circuit closure</span>
+                            </div>
+                        </a>
+                        <a href="docs/logguard/" class="protection-card">
+                            <div class="protection-icon">📝</div>
+                            <h3>Protocol Warning Detection</h3>
+                            <p>
+                                Monitors Tor logs for security-relevant events and protocol warnings
+                                that may indicate attack attempts. Configurable log buffering with
+                                security event alerting for real-time threat awareness.
+                            </p>
+                            <div class="protection-details">
+                                <span class="detail-tag">Log monitoring</span>
+                                <span class="detail-tag">Event alerting</span>
+                                <span class="detail-tag">Configurable buffering</span>
+                            </div>
+                        </a>
+                        <a href="docs/cbtverify/" class="protection-card">
+                            <div class="protection-icon">⏱️</div>
+                            <h3>Circuit Build Timeout Verification</h3>
+                            <p>
+                                Verifies circuit construction timing to detect manipulation
+                                attempts. Tracks circuit build times and identifies anomalous
+                                patterns that may indicate an attacker trying to influence path
+                                selection.
+                            </p>
+                            <div class="protection-details">
+                                <span class="detail-tag">Build time tracking</span>
+                                <span class="detail-tag">Pattern detection</span>
+                                <span class="detail-tag">Optional component</span>
+                            </div>
+                        </a>
+                        <a href="docs/pathverify/" class="protection-card">
+                            <div class="protection-icon">🔍</div>
+                            <h3>Circuit Path Verification</h3>
+                            <p>
+                                Verifies that circuit paths conform to vanguard configuration.
+                                Ensures guards are used correctly at each layer and detects any path
+                                manipulation attempts that bypass vanguard protections.
+                            </p>
+                            <div class="protection-details">
+                                <span class="detail-tag">Guard verification</span>
+                                <span class="detail-tag">Path validation</span>
+                                <span class="detail-tag">Optional component</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cli">
+                <div class="container">
+                    <div class="section-header">
+                        <div class="section-label">⚡ Command Line</div>
+                        <h2 class="section-title">CLI Reference</h2>
+                        <p class="section-subtitle">
+                            Full control over vanguards-rs from the command line.
+                        </p>
+                    </div>
+                    <div class="cli-grid">
+                        <div class="cli-category">
+                            <h3>🔌 Connection Options</h3>
+                            <div class="cli-options">
+                                <div class="cli-option">
+                                    <code>--control-ip &lt;IP&gt;</code>
+                                    <span>Tor control IP address (default: 127.0.0.1)</span>
+                                </div>
+                                <div class="cli-option">
+                                    <code>--control-port &lt;PORT&gt;</code>
+                                    <span>Tor control port (default: 9051)</span>
+                                </div>
+                                <div class="cli-option">
+                                    <code>--control-socket &lt;PATH&gt;</code>
+                                    <span>Unix socket path (alternative to TCP)</span>
+                                </div>
+                                <div class="cli-option">
+                                    <code>--control-pass &lt;PASS&gt;</code>
+                                    <span>Control port password (if using password auth)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cli-category">
+                            <h3>📁 File Options</h3>
+                            <div class="cli-options">
+                                <div class="cli-option">
+                                    <code>--config &lt;FILE&gt;</code>
+                                    <span>Load configuration from TOML file</span>
+                                </div>
+                                <div class="cli-option">
+                                    <code>--state &lt;FILE&gt;</code>
+                                    <span>Vanguard state file path (default: vanguards.state)</span>
+                                </div>
+                                <div class="cli-option">
+                                    <code>--generate_config &lt;FILE&gt;</code>
+                                    <span>Generate default config file and exit</span>
+                                </div>
+                                <div class="cli-option">
+                                    <code>--logfile &lt;FILE&gt;</code>
+                                    <span>Write logs to file instead of stdout</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cli-category">
+                            <h3>🎛️ Component Control</h3>
+                            <div class="cli-options">
+                                <div class="cli-option">
+                                    <code>--disable-vanguards</code>
+                                    <span>Disable vanguard layer protection</span>
+                                </div>
+                                <div class="cli-option">
+                                    <code>--disable-bandguards</code>
+                                    <span>Disable bandwidth monitoring</span>
+                                </div>
+                                <div class="cli-option">
+                                    <code>--disable-rendguard</code>
+                                    <span>Disable rendezvous point analysis</span>
+                                </div>
+                                <div class="cli-option">
+                                    <code>--disable-logguard</code>
+                                    <span>Disable Tor log monitoring</span>
+                                </div>
+                                <div class="cli-option">
+                                    <code>--enable-cbtverify</code>
+                                    <span>Enable circuit build timeout verification</span>
+                                </div>
+                                <div class="cli-option">
+                                    <code>--enable-pathverify</code>
+                                    <span>Enable circuit path verification</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cli-category">
+                            <h3>⚙️ Operation Modes</h3>
+                            <div class="cli-options">
+                                <div class="cli-option">
+                                    <code>--one-shot-vanguards</code>
+                                    <span>Set vanguards once and exit immediately</span>
+                                </div>
+                                <div class="cli-option">
+                                    <code>--loglevel &lt;LEVEL&gt;</code>
+                                    <span>Log verbosity: debug, info, notice, warn, error</span>
+                                </div>
+                                <div class="cli-option">
+                                    <code>--close-circuits</code>
+                                    <span>Close suspicious circuits (default: true)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cli-example-section">
+                        <h3>📋 Example Commands</h3>
+                        <pre><code><span class="code-comment"># Basic usage with default settings</span>
+<span class="code-prompt">$</span> vanguards-rs
+
+<span class="code-comment"># Connect via Unix socket with debug logging</span>
+<span class="code-prompt">$</span> vanguards-rs --control-socket /run/tor/control --loglevel debug
+
+<span class="code-comment"># Use custom config and state files</span>
+<span class="code-prompt">$</span> vanguards-rs --config /etc/vanguards/vanguards.conf \<br>    --state /var/lib/tor/vanguards.state
+
+<span class="code-comment"># Enable all optional security components</span>
+<span class="code-prompt">$</span> vanguards-rs --enable-cbtverify --enable-pathverify
+
+<span class="code-comment"># One-shot mode for systemd integration</span>
+<span class="code-prompt">$</span> vanguards-rs --one-shot-vanguards --logfile /var/log/vanguards.log</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="config">
+                <div class="container">
+                    <div class="section-header">
+                        <div class="section-label">⚙️ Settings</div>
+                        <h2 class="section-title">Configuration</h2>
+                        <p class="section-subtitle">
+                            Fine-tune protection with TOML config files. Configuration precedence:
+                            CLI args → Environment variables → Config file → Defaults.
+                        </p>
+                    </div>
+                    <div class="config-grid">
+                        <div class="config-block">
+                            <h3>📡 Connection & Logging</h3>
+                            <pre><code><span class="code-comment"># vanguards.conf</span>
+control_ip = <span class="code-string">"127.0.0.1"</span>
+control_port = <span class="code-number">9051</span>
+<span class="code-comment"># control_socket = "/run/tor/control"</span>
+<span class="code-comment"># control_pass = "my_password"</span>
+
+state_file = <span class="code-string">"vanguards.state"</span>
+loglevel = <span class="code-string">"notice"</span>
+<span class="code-comment"># logfile = "/var/log/vanguards.log"</span></code></pre>
+                        </div>
+                        <div class="config-block">
+                            <h3>🎛️ Component Toggles</h3>
+                            <pre><code><span class="code-comment"># Enable/disable components</span>
+enable_vanguards = <span class="code-keyword">true</span>
+enable_bandguards = <span class="code-keyword">true</span>
+enable_rendguard = <span class="code-keyword">true</span>
+enable_logguard = <span class="code-keyword">true</span>
+enable_cbtverify = <span class="code-keyword">false</span>
+enable_pathverify = <span class="code-keyword">false</span>
+
+<span class="code-comment"># Operational settings</span>
+close_circuits = <span class="code-keyword">true</span>
+one_shot_vanguards = <span class="code-keyword">false</span></code></pre>
+                        </div>
+                        <div class="config-block">
+                            <h3>🛡️ Vanguard Settings</h3>
+                            <pre><code>[vanguards]
+num_layer1_guards = <span class="code-number">2</span>
+num_layer2_guards = <span class="code-number">4</span>
+num_layer3_guards = <span class="code-number">8</span>
+
+<span class="code-comment"># Layer 2: 1-45 days</span>
+min_layer2_lifetime_hours = <span class="code-number">24</span>
+max_layer2_lifetime_hours = <span class="code-number">1080</span>
+
+<span class="code-comment"># Layer 3: 1-48 hours</span>
+min_layer3_lifetime_hours = <span class="code-number">1</span>
+max_layer3_lifetime_hours = <span class="code-number">48</span></code></pre>
+                        </div>
+                        <div class="config-block">
+                            <h3>📊 Bandguards Settings</h3>
+                            <pre><code>[bandguards]
+circ_max_megabytes = <span class="code-number">0</span>
+circ_max_age_hours = <span class="code-number">24</span>
+circ_max_hsdesc_kilobytes = <span class="code-number">30</span>
+circ_max_disconnected_secs = <span class="code-number">30</span>
+conn_max_disconnected_secs = <span class="code-number">15</span>
+
+[rendguard]
+use_global_start_count = <span class="code-number">1000</span>
+use_scale_at_count = <span class="code-number">20000</span>
+use_relay_start_count = <span class="code-number">100</span>
+use_max_use_to_bw_ratio = <span class="code-number">5.0</span></code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="docs">
+                <div class="container">
+                    <div class="section-header">
+                        <div class="section-label">📚 Reference</div>
+                        <h2 class="section-title">Documentation</h2>
+                        <p class="section-subtitle">
+                            Comprehensive API documentation with examples for every module.
+                        </p>
+                    </div>
+                    <div class="docs-grid">
+                        <a href="docs/api/" class="docs-link">
+                            <span class="docs-link-icon">🚀</span>
+                            <div class="docs-link-text">
+                                <div class="docs-link-title">API</div>
+                                <div class="docs-link-desc">
+                                    High-level Vanguards struct for programmatic use
+                                </div>
+                            </div>
+                            <span class="docs-link-arrow">→</span>
+                        </a>
+                        <a href="docs/config/" class="docs-link">
+                            <span class="docs-link-icon">⚙️</span>
+                            <div class="docs-link-text">
+                                <div class="docs-link-title">Config</div>
+                                <div class="docs-link-desc">
+                                    Configuration management (TOML, CLI, environment)
+                                </div>
+                            </div>
+                            <span class="docs-link-arrow">→</span>
+                        </a>
+                        <a href="docs/control/" class="docs-link">
+                            <span class="docs-link-icon">🎛️</span>
+                            <div class="docs-link-text">
+                                <div class="docs-link-title">Control</div>
+                                <div class="docs-link-desc">
+                                    Main event loop and Tor connection management
+                                </div>
+                            </div>
+                            <span class="docs-link-arrow">→</span>
+                        </a>
+                        <a href="docs/vanguards/" class="docs-link">
+                            <span class="docs-link-icon">🛡️</span>
+                            <div class="docs-link-text">
+                                <div class="docs-link-title">Vanguards</div>
+                                <div class="docs-link-desc">
+                                    Vanguard state and guard selection algorithms
+                                </div>
+                            </div>
+                            <span class="docs-link-arrow">→</span>
+                        </a>
+                        <a href="docs/node_selection/" class="docs-link">
+                            <span class="docs-link-icon">🎲</span>
+                            <div class="docs-link-text">
+                                <div class="docs-link-title">Node Selection</div>
+                                <div class="docs-link-desc">Bandwidth-weighted relay selection</div>
+                            </div>
+                            <span class="docs-link-arrow">→</span>
+                        </a>
+                        <a href="docs/" class="docs-link">
+                            <span class="docs-link-icon">📖</span>
+                            <div class="docs-link-text">
+                                <div class="docs-link-title">Full API Reference</div>
+                                <div class="docs-link-desc">Complete rustdoc documentation</div>
+                            </div>
+                            <span class="docs-link-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="download">
+                <div class="container">
+                    <div class="download-card">
+                        <div class="download-header">
+                            <div class="download-icon">📦</div>
+                            <div class="download-info">
+                                <h3>Download Source</h3>
+                                <p>Get the latest source code archive</p>
+                            </div>
+                        </div>
+                        <div class="download-buttons">
+                            <a
+                                href="dist/vanguards-rs-latest.tar.gz"
+                                class="btn btn-secondary download-btn"
+                            >
+                                <span>📄</span>
+                                <span>.tar.gz</span>
+                            </a>
+                            <a
+                                href="dist/vanguards-rs-latest.zip"
+                                class="btn btn-secondary download-btn"
+                            >
+                                <span>📁</span>
+                                <span>.zip</span>
+                            </a>
+                            <a href="dist/" class="btn btn-secondary download-btn">
+                                <span>📋</span>
+                                <span>All Versions</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div>
+                        <div class="footer-logo">vanguards-rs</div>
+                        <p class="footer-copyright">
+                            © 2026 vanguards-rs contributors. Apache-2.0 License.
+                        </p>
+                    </div>
+                    <div class="footer-links">
+                        <a
+                            href="https://github.com/tn3w/vanguards-rs"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >GitHub</a
+                        >
+                        <a
+                            href="https://crates.io/crates/vanguards-rs"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >crates.io</a
+                        >
+                        <a href="docs/">Documentation</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
