@@ -13,7 +13,7 @@
     <img src="https://img.shields.io/docsrs/vanguards-rs?style=for-the-badge&logo=docs.rs&logoColor=white" alt="docs.rs">
   </a>
   <a href="https://github.com/tn3w/vanguards-rs/blob/master/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge" alt="License">
+    <img src="https://img.shields.io/badge/license-Apache%202.0-blue?style=for-the-badge" alt="License">
   </a>
 </p>
 

@@ -61,7 +61,7 @@ jobs:
           mkdir -p docs
           cp -r docs-src/* docs/
           mkdir -p docs/docs
-          cp -r target/doc/stem_rs/* docs/docs/
+          cp -r target/doc/vanguards_rs/* docs/docs/
           cp -r target/doc/static.files docs/
           cp -r target/doc/src docs/
           
@@ -92,7 +92,7 @@ jobs:
             sed -i "s|href=\"${rel_path}index.html\"|href=\"/\"|g" "$file"
             sed -i "s|href=\"../index.html\"|href=\"/\"|g" "$file"
             sed -i "s|href=\"/index.html\"|href=\"/\"|g" "$file"
-            sed -i 's|href="[^"]*stem_rs/index\.html"|href="/"|g' "$file"
+            sed -i 's|href="[^"]*vanguards_rs/index\.html"|href="/"|g' "$file"
           done
 
       - name: Generate dist directory listing
